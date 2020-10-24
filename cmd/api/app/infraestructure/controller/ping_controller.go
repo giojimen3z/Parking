@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	pong string = "pong"
+	Pong string = "pong"
 )
 
 var (
@@ -26,5 +26,5 @@ func (controller *pingController) Ping(c *gin.Context) {
 		_ = txn.Ignore()
 	}
 
-	c.String(http.StatusOK, pong)
+	c.String(http.StatusOK, Pong)
 }

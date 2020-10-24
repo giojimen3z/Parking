@@ -1,0 +1,2 @@
+cmd/api/app/main.go
+cmd/api/app/infrastructure/container/.*

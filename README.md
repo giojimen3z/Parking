@@ -1,8 +1,8 @@
-# Go Starter App
+# Parking for Bikes GO Hexagonal Architecture
 
 ![technology Go](https://img.shields.io/badge/technology-go-blue.svg)
 
-This is a basic Go application created by Fury to be used as a starting point for your project.
+This is a basic Go application created using hexagon architecture  and golang
 
 ## First steps
 

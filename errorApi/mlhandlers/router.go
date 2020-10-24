@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Parking/goutils/apierrors"
+	"github.com/Parking/errorApi/apierrors"
 	"github.com/gin-gonic/gin"
 )
 
