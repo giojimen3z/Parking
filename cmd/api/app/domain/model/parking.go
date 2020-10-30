@@ -1,9 +1,8 @@
 package model
 
-import "time"
-
 type Parking struct {
-	ParkingId        int64     `json:"parking_id"`
-	ParkingEnterDate time.Time `json:"parking_enter_date"`
-	ParkingExitDate  time.Time `json:"Parking_exit_date"`
+	ParkingId      int64  `json:"parking_id"`
+	ParkingName    string `json:"parking_name"`
+	ParkingAddress string `json:"parking_address"`
+	ParkingOwner   string `json:"parking_owner"`
 }

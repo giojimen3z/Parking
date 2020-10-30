@@ -9,3 +9,9 @@ func getBikeAccessService() service.BikeAccessServicePort {
 		BikeAccessRepository: getBikeAccessRepository(),
 	}
 }
+
+func getTicketService() service.TicketCreationServicePort {
+	return &service.TicketCreationService{
+		TicketCreationRepository: getTicketRepository(),
+	}
+}

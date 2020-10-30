@@ -5,5 +5,8 @@ import (
 )
 
 func GetBikeAccessApplication() application.AccessBikeApplication {
-	return &application.BikeAccess{  BikeAccessService : getBikeAccessService()}
+	return &application.BikeAccess{
+		BikeAccessService:     getBikeAccessService(),
+		TicketCreationService: getTicketService(),
+	}
 }

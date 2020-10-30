@@ -13,8 +13,11 @@ func GetContentController() *controller.BikeAccessController {
 	return &controller.BikeAccessController{BikeAccessApplication: GetBikeAccessApplication()}
 }
 
-func getBikeAccessRepository() port.BikeAccessRepository{
+func getBikeAccessRepository() port.BikeAccessRepository {
 	return &adapter.BikeAccessMysqlRepository{WriteClient: getWriteConnectionClient()}
+}
+func getTicketRepository() port.TicketCreationRepository {
+	return &adapter.TicketCreationMysqlRepository{WriteClient: getWriteConnectionClient()}
 }
 func getWriteConnectionClient() *sql.DB {
 	conn, _ := config.GetWriteConnection()

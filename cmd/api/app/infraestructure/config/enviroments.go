@@ -6,26 +6,25 @@ import (
 )
 
 const (
-	appId                  = ""
-	goEnvironment          = "GO_ENVIRONMENT"
-	production             = "production"
-	readScope              = ""
-	scope                  = "SCOPE"
-	dbName                 = "bikeparking"
-	dbHost                 = "localhost:3306"
-	dbTestHost             = "localhost:3306"
-	dbTestName             = "bikeparking"
-	readDBAdminUser        = "root"
-	dbAdminPwd             = "root"
-	readDBTestUser         = "root"
-	readDBTestPwd          = "root"
-	writeDBAdminUser       = "root"
-	writeDBAdminPwd        = "root"
-	writeDBTestUser        = "root"
-	writeDBTestPwd         = "root"
-	writeScope             = "write"
-	localScope             = "local"
-
+	appId            = ""
+	goEnvironment    = "GO_ENVIRONMENT"
+	production       = "production"
+	readScope        = ""
+	scope            = "SCOPE"
+	dbName           = ""
+	dbHost           = ""
+	dbTestHost       = "localhost:3306"
+	dbTestName       = "bikeparking"
+	readDBAdminUser  = ""
+	dbAdminPwd       = ""
+	readDBTestUser   = "root"
+	readDBTestPwd    = "root"
+	writeDBAdminUser = ""
+	writeDBAdminPwd  = ""
+	writeDBTestUser  = "root"
+	writeDBTestPwd   = "root"
+	writeScope       = "write"
+	localScope       = "local"
 )
 
 func GetAppId() string {
@@ -56,13 +55,10 @@ func getActualScope() string {
 	return os.Getenv(scope)
 }
 
-
 // IsLocalScope return true if environment is locally, false otherwise
 func IsLocalScope() bool {
 	return strings.EqualFold(getActualScope(), localScope)
 }
-
-
 
 func GetRoutePrefix() string {
 	if !IsProductiveScope() {

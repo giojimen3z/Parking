@@ -2,6 +2,7 @@ package adapter_test
 
 import (
 	"testing"
+	"time"
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/Parking/cmd/api/app/domain/exception"
@@ -10,55 +11,56 @@ import (
 	"github.com/Parking/cmd/api/test/builder"
 	"github.com/stretchr/testify/assert"
 )
-
 const (
-	insertQueryMatcher = "INSERT INTO bike "
+	insertQueryTicket = "INSERT INTO ticket "
 )
-
-func setUpBikeRepository() (bikeAccessRepository port.BikeAccessRepository, mock sqlmock.Sqlmock) {
+func setUpTicketRepository() (ticketCreationRepository port.TicketCreationRepository, mock sqlmock.Sqlmock) {
 	db, mock, _ := sqlmock.New()
-	bikeAccessRepository = &adapter.BikeAccessMysqlRepository{
+	ticketCreationRepository = &adapter.TicketCreationMysqlRepository{
 		WriteClient: db,
 	}
 	return
 }
-func TestWhenSaveBikeIsOkThenReturnNil(t *testing.T) {
+func TestWhenSaveTicketIsOkThenReturnNil(t *testing.T) {
 	bike := builder.NewBikeDataBuilder().Build()
-	repository, dbMock := setUpBikeRepository()
+	repository, dbMock := setUpTicketRepository()
+	enterDate := time.Now().UTC().Format(time.RFC3339)
 
 	dbMock.ExpectBegin()
-	dbMock.ExpectExec(insertQueryMatcher).WillReturnResult(sqlmock.NewResult(1, 1))
+	dbMock.ExpectExec(insertQueryTicket).WillReturnResult(sqlmock.NewResult(1, 1))
 	dbMock.ExpectCommit()
 
-	errorResult := repository.SaveBike(bike)
+	errorResult := repository.SaveTicket(bike.SerialNumber,enterDate)
 
 	assert.Nil(t, errorResult)
 	assert.Nil(t, dbMock.ExpectationsWereMet())
 }
-func TestWhenSaveTransactionFailsThenReturnError(t *testing.T) {
+func TestWhenSaveTicketTransactionFailThenReturnError(t *testing.T) {
 	transactionErrorMessage := "an error happened when execute the transaction"
 	bike := builder.NewBikeDataBuilder().Build()
+	enterDate := time.Now().UTC().Format(time.RFC3339)
 	errorOnUpdate := exception.InternalServerError{ErrMessage: transactionErrorMessage}
-	repository, dbMock := setUpBikeRepository()
+	repository, dbMock := setUpTicketRepository()
 
 	dbMock.ExpectBegin()
-	dbMock.ExpectExec(insertQueryMatcher).WillReturnError(errorOnUpdate)
+	dbMock.ExpectExec(insertQueryTicket).WillReturnError(errorOnUpdate)
 
-	errorResult := repository.SaveBike(bike)
+	errorResult := repository.SaveTicket(bike.SerialNumber,enterDate)
 
 	assert.NotNil(t, errorResult)
 	assert.Equal(t, errorOnUpdate, errorResult)
 	assert.Nil(t, dbMock.ExpectationsWereMet())
 }
-func TestWhenSaveTransactionBeginErrorThenReturnError(t *testing.T) {
+func TestWhenSaveTicketTransactionBeginErrorThenReturnError(t *testing.T) {
 	transactionErrorMessage := "an error happened when initializing the transaction"
 	bike := builder.NewBikeDataBuilder().Build()
+	enterDate := time.Now().UTC().Format(time.RFC3339)
 	errorOnUpdate := exception.InternalServerError{ErrMessage: transactionErrorMessage}
-	repository, dbMock := setUpBikeRepository()
+	repository, dbMock := setUpTicketRepository()
 
 	dbMock.ExpectBegin().WillReturnError(errorOnUpdate)
 
-	errorResult := repository.SaveBike(bike)
+	errorResult := repository.SaveTicket(bike.SerialNumber,enterDate)
 
 	assert.NotNil(t, errorResult)
 	assert.Equal(t, errorOnUpdate, errorResult)

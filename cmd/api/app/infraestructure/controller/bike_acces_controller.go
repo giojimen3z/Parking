@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//URIBikeAccess is for the endpoint to add new bike
+
 const (
 	BikeAccessGranted = "the bike with the serial number %v was access successfully"
 )
@@ -20,7 +20,7 @@ type BikeAccessController struct {
 }
 
 
-//MakeSyncTranslation is to execute the use case for sync translation
+//MakeSyncTranslation is to execute the use case for create the bike
 func (bikeAccessController *BikeAccessController) MakeAccessBike(context *gin.Context) {
 
 	bike := bikeAccessController.mapBike(context)
