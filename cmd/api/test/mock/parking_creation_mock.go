@@ -5,11 +5,11 @@ import (
 	"github.com/stretchr/testify/mock"
 )
 
-type BikeAccessRepositoryMock struct {
+type ParkingCreationMock struct {
 	mock.Mock
 }
 
-func (mock *BikeAccessRepositoryMock) SaveBike(bike model.Bike) (err error) {
-	args := mock.Called(bike)
+func (mock *ParkingCreationMock) Handler(parking model.Parking) (err error) {
+	args := mock.Called(parking)
 	return args.Error(0)
 }

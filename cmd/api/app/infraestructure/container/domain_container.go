@@ -15,3 +15,14 @@ func getTicketService() service.TicketCreationServicePort {
 		TicketCreationRepository: getTicketRepository(),
 	}
 }
+func getParkingService() service.ParkingCreationServicePort {
+	return &service.ParkingCreationService{
+		ParkingCreationRepository: getParkingCreationRepository(),
+	}
+}
+
+func getParkingListService() service.ParkingListServicePort {
+	return &service.ParkingListService{
+		ParkingListRepository: getParkingListRepository(),
+	}
+}

@@ -12,9 +12,10 @@ import (
 )
 
 const (
+	queryToSaveBike = `INSERT INTO bike (serial_number,brand,color)VALUES(?,?,?)`
 	errorParameter  = "the type of parameter is not correct"
 	errorSavingBike = "an error occurred save bike with serial number %s"
-	queryToSaveBike = `INSERT INTO bike (serial_number,brand,color)VALUES(?,?,?)`
+
 )
 
 // BikeAccessMysqlRepository represent the mysql repository

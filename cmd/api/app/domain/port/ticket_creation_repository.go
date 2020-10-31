@@ -1,7 +1,9 @@
 package port
 
+import "github.com/Parking/cmd/api/app/domain/model"
+
 // TicketCreationRepository interface to connect bike access implementation
 type TicketCreationRepository interface {
-	// SaveBike post the Bike into DBA
-	SaveTicket(serialNumber string, enterDate string) (err error)
+	// SaveTicket post the ticket into DBA
+	SaveTicket(ticket model.Ticket) (err error)
 }

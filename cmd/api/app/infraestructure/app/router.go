@@ -12,7 +12,7 @@ func StartApp() {
 	router := mlhandlers.DefaultRouter()
 	router.Use(middleware.ErrorHandler())
 
-	mapUrls(router)
+	MapUrls(router)
 
 	port := os.Getenv("PORT")
 

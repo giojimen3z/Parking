@@ -14,7 +14,7 @@ var (
 	bikeAccessRepository = new(mock.BikeAccessRepositoryMock)
 )
 
-func TestWhenSaveTheBikeIntoDBAThenShouldReturnOk(t *testing.T) {
+func TestWhenSendTheBikeIntoDToRepositoryThenShouldReturnOk(t *testing.T) {
 
 	bike := builder.NewBikeDataBuilder().Build()
 	bikeAccessRepository.On("SaveBike", bike).Times(1).Return(nil)
@@ -26,7 +26,7 @@ func TestWhenSaveTheBikeIntoDBAThenShouldReturnOk(t *testing.T) {
 	assert.Nil(t, err)
 	bikeAccessRepository.AssertExpectations(t)
 }
-func TestWhenFailedSaveTheBikeIntoDBAThenShouldReturnError(t *testing.T) {
+func TestWhenFailedSendTheBikeIntoDToRepositoryThenShouldReturnError(t *testing.T) {
 
 	bike := builder.NewBikeDataBuilder().Build()
 	errorExpected := errors.New("error getting repository information")
@@ -37,6 +37,6 @@ func TestWhenFailedSaveTheBikeIntoDBAThenShouldReturnError(t *testing.T) {
 	err := bikeAccessService.BikeAccess(bike)
 
 	assert.NotNil(t, err)
-	assert.EqualError(t,errorExpected,err.Error())
+	assert.EqualError(t, errorExpected, err.Error())
 	bikeAccessRepository.AssertExpectations(t)
 }

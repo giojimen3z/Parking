@@ -9,7 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-
 const (
 	ParkingCreatedMsg = "the Parking  %v  was created successfully"
 )
@@ -30,7 +29,7 @@ func (parkingCreationController *ParkingCreationController) MakeParkingCreation(
 		return
 	}
 
-	context.JSON(http.StatusOK, fmt.Sprintf(BikeAccessGranted, parking.ParkingName))
+	context.JSON(http.StatusOK, fmt.Sprintf(ParkingCreatedMsg, parking.ParkingName))
 
 }
 

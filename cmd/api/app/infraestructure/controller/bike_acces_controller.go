@@ -9,7 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-
 const (
 	BikeAccessGranted = "the bike with the serial number %v was access successfully"
 )
@@ -19,8 +18,7 @@ type BikeAccessController struct {
 	BikeAccessApplication application.AccessBikeApplication
 }
 
-
-//MakeSyncTranslation is to execute the use case for create the bike
+//MakeAccessBike is to execute the use case for create the bike
 func (bikeAccessController *BikeAccessController) MakeAccessBike(context *gin.Context) {
 
 	bike := bikeAccessController.mapBike(context)
@@ -45,7 +43,6 @@ func (bikeAccessController *BikeAccessController) mapBike(context *gin.Context) 
 	}
 	return bike
 }
-
 
 func abort(ctx *gin.Context, err error) {
 	ctx.Error(err)

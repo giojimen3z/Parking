@@ -15,7 +15,7 @@ var (
 	ticketCreationServiceMock = new(mock.TicketCreationServiceMock)
 )
 
-func TestWhenAllBeOKThenReturnNilError(t *testing.T) {
+func TestWhenAllBeOKAccessingBikeThenReturnNilError(t *testing.T) {
 
 	bike := builder.NewBikeDataBuilder().Build()
 	bikeAccessServiceMock.On("BikeAccess", bike).Return(nil).Once()

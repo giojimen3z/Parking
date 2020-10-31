@@ -8,8 +8,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-
-
 func TestConstants(t *testing.T) {
 	assert.EqualValues(t, "pong", controller.Pong)
 }

@@ -10,3 +10,9 @@ func GetBikeAccessApplication() application.AccessBikeApplication {
 		TicketCreationService: getTicketService(),
 	}
 }
+func GetParkingAccessApplication() application.ParkingCreationApplication {
+	return &application.ParkingCreation{ParkingCreationService: getParkingService()}
+}
+func GetParkingListApplication() application.ParkingListApplication {
+	return &application.ParkingList{ParkingListService: getParkingListService()}
+}

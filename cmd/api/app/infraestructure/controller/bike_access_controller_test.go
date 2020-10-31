@@ -23,19 +23,19 @@ var (
 	bikeAccessMock bikeMock.BikeAccessMock
 )
 
-func setupReprocessClaimInsuranceController(bikeAccessMock *bikeMock.BikeAccessMock) (*gin.Engine, *controller.BikeAccessController) {
+func setupBikeAccessController(bikeAccessMock *bikeMock.BikeAccessMock) (*gin.Engine, *controller.BikeAccessController) {
 	gin.SetMode(gin.TestMode)
 	_, router := gin.CreateTestContext(httptest.NewRecorder())
 	router.Use(middleware.ErrorHandler())
 	return router, &controller.BikeAccessController{BikeAccessApplication: bikeAccessMock}
 }
 
-func TestWhenMakeClaimReprocessThenReturn200(t *testing.T) {
+func TestWhenMakeBikeAccessThenReturn200(t *testing.T) {
 
-	router, controllerBike := setupReprocessClaimInsuranceController(&bikeAccessMock)
+	router, controllerBike := setupBikeAccessController(&bikeAccessMock)
 	bikeAccessMock.On("Handler", mock.Anything).Times(1).Return(nil).Once()
-	claimsRouterGroup := router.Group(routerGroupBase)
-	claimsRouterGroup.POST("/Bike/Access", controllerBike.MakeAccessBike)
+	bikeRouterGroup := router.Group(routerGroupBase)
+	bikeRouterGroup.POST("/Bike/Access", controllerBike.MakeAccessBike)
 
 	response := controller.RunRequestWithHeaders(t, router, http.MethodPost, bikeAccessURITest, "", nil)
 
@@ -43,13 +43,13 @@ func TestWhenMakeClaimReprocessThenReturn200(t *testing.T) {
 	bikeAccessMock.AssertExpectations(t)
 }
 
-func TestWhenMakeClaimReprocessFailedThenReturn404(t *testing.T) {
+func TestWhenMakeBikeAccessFailedThenReturn404(t *testing.T) {
 
-	router, controllerBike := setupReprocessClaimInsuranceController(&bikeAccessMock)
-	errorExpected := exception.DataNotFound{ErrMessage: "we didn't´t found information"}
+	router, controllerBike := setupBikeAccessController(&bikeAccessMock)
+	errorExpected := exception.DataNotFound{ErrMessage: "we didn't found information"}
 	bikeAccessMock.On("Handler", mock.Anything).Times(1).Return(errorExpected).Once()
-	claimsRouterGroup := router.Group(routerGroupBase)
-	claimsRouterGroup.POST("/Bike/Access", controllerBike.MakeAccessBike)
+	bikeRouterGroup := router.Group(routerGroupBase)
+	bikeRouterGroup.POST("/Bike/Access", controllerBike.MakeAccessBike)
 
 	response := controller.RunRequestWithHeaders(t, router, http.MethodPost, bikeAccessURITest, "", nil)
 

@@ -12,7 +12,7 @@ const (
 )
 
 type BikeAccessServicePort interface {
-	// BikeAccess Send to DBA the Bike requested
+	// BikeAccess Send to repository  the Bike requested
 	BikeAccess(bike model.Bike) (err error)
 }
 

@@ -17,6 +17,7 @@ func NewBikeDataBuilder() *BikeDataBuilder {
 		color:        "Negro",
 	}
 }
+
 func (builder *BikeDataBuilder) Build() model.Bike {
 	return model.Bike{
 		BikeId:       builder.bikeId,

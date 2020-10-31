@@ -2,11 +2,11 @@
 
 ![technology Go](https://img.shields.io/badge/technology-go-blue.svg)
 
-This is a basic Go application created using hexagon architecture  and golang
+This is a basic Go application created using hexagon architecture  and golang 
 
 ## First steps
 
-### Go Runtime Version
+**### Go Runtime Version
 
 Specify the Go runtime version tag you desire in your `Dockerfile`. If in doubt, it's completely safe to always use the
 latest one given the [Go 1 compatibility guarantees](https://golang.org/doc/go1compat).
@@ -24,4 +24,4 @@ The file should start with:
 
 ### Dependency management
 
-This image has native support for Go Modules and requires the use of it as the dependency management tool.
+This** image has native support for Go Modules and requires the use of it as the dependency management tool.

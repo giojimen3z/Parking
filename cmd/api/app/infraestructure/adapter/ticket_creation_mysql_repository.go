@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"time"
 
 	"github.com/Parking/cmd/api/app/domain/exception"
+	"github.com/Parking/cmd/api/app/domain/model"
 	"github.com/Parking/cmd/api/app/infraestructure/config"
 	"github.com/Parking/errorApi/logger"
 )
@@ -23,27 +23,23 @@ type TicketCreationMysqlRepository struct {
 }
 
 //SaveTicket is a function to initialize connection to the DB, take control of the transaction before returning something and send to save.
-func (ticketCreationMysqlRepository *TicketCreationMysqlRepository) SaveTicket(serialNumber string, enterDate string) (err error) {
+func (ticketCreationMysqlRepository *TicketCreationMysqlRepository) SaveTicket(ticket model.Ticket) (err error) {
 	var tx *sql.Tx
 
 	defer func() {
 		config.CloseConnections(err, tx, nil, nil)
 	}()
-	accessDate, err := time.Parse(time.RFC3339, enterDate)
 
-	if err != nil {
-		fmt.Println(err)
-	}
 
 	tx, err = ticketCreationMysqlRepository.WriteClient.Begin()
 	if err != nil {
-		errMsg := fmt.Sprintf(errorSavingTicket, serialNumber)
+		errMsg := fmt.Sprintf(errorSavingTicket, ticket.SerialNumber)
 		logger.Error(errMsg, err)
 		return exception.InternalServerError{ErrMessage: err.Error()}
 	}
 	_, err = ticketCreationMysqlRepository.WriteClient.Exec(queryToSaveTicket,
-		serialNumber,
-		accessDate)
+		ticket.SerialNumber,
+		ticket.EnterDate)
 
 	if err != nil {
 		errMsg := errors.New(errorParameter)
