@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/Parking/cmd/api/app/domain/exception"
-	"github.com/Parking/errorApi/apierrors"
-	"github.com/Parking/errorApi/logger"
+	"github.com/Parking/pkg/apierrors"
+	"github.com/Parking/pkg/logger"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 )

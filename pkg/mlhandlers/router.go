@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Parking/errorApi/apierrors"
+	"github.com/Parking/pkg/apierrors"
 	"github.com/gin-gonic/gin"
 )
 

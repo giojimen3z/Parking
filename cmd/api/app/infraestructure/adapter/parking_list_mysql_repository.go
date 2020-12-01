@@ -4,7 +4,7 @@ import (
 	"database/sql"
 
 	"github.com/Parking/cmd/api/app/domain/model"
-	"github.com/Parking/errorApi/logger"
+	"github.com/Parking/pkg/logger"
 )
 
 const (

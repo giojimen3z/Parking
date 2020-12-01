@@ -31,11 +31,9 @@ func getParkingCreationRepository() port.ParkingCreationRepository {
 	return &adapter.ParkingCreationMysqlRepository{WriteClient: getWriteConnectionClient()}
 }
 
-
 func getParkingListRepository() port.ParkingListRepository {
 	return &adapter.ParkingListMysqlRepository{ReadConnectionClient: getReadConnectionClient()}
 }
-
 
 func getWriteConnectionClient() *sql.DB {
 	conn, _ := config.GetWriteConnection()

@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/Parking/cmd/api/app/application"
-	"github.com/Parking/errorApi/apierrors"
+	"github.com/Parking/pkg/apierrors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,7 +20,7 @@ type ParkingListController struct {
 //MakeParkingList is to execute the use case for get all parking
 func (parkingListController *ParkingListController) MakeParkingList(context *gin.Context) {
 
-	parkingList,err := parkingListController.ParkingListApplication.Handler()
+	parkingList, err := parkingListController.ParkingListApplication.Handler()
 
 	if err != nil {
 		err := apierrors.NewNotFoundApiError(failedListParking)

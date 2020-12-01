@@ -22,5 +22,3 @@ func TestIsNotProductiveScopes(t *testing.T) {
 	got := isInProductiveScopes()
 	assert.Equal(t, want, got)
 }
-
-

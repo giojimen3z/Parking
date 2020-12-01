@@ -8,14 +8,13 @@ import (
 	"github.com/Parking/cmd/api/app/domain/exception"
 	"github.com/Parking/cmd/api/app/domain/model"
 	"github.com/Parking/cmd/api/app/infraestructure/config"
-	"github.com/Parking/errorApi/logger"
+	"github.com/Parking/pkg/logger"
 )
 
 const (
 	queryToSaveBike = `INSERT INTO bike (serial_number,brand,color)VALUES(?,?,?)`
 	errorParameter  = "the type of parameter is not correct"
 	errorSavingBike = "an error occurred save bike with serial number %s"
-
 )
 
 // BikeAccessMysqlRepository represent the mysql repository

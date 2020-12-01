@@ -6,7 +6,7 @@ import (
 
 	"github.com/Parking/cmd/api/app/domain/model"
 	"github.com/Parking/cmd/api/app/domain/port"
-	"github.com/Parking/errorApi/logger"
+	"github.com/Parking/pkg/logger"
 )
 
 type TicketCreationServicePort interface {

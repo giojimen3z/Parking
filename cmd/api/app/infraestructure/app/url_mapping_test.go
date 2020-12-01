@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Parking/errorApi/mlhandlers"
+	"github.com/Parking/pkg/mlhandlers"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 )
@@ -34,4 +34,3 @@ func TestStartApp(t *testing.T) {
 	assert.EqualValues(t, http.MethodGet, routeMethodPing)
 	assert.EqualValues(t, "/ping", routeUrlPing)
 }
-

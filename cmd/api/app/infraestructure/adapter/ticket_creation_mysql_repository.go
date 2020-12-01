@@ -8,12 +8,11 @@ import (
 	"github.com/Parking/cmd/api/app/domain/exception"
 	"github.com/Parking/cmd/api/app/domain/model"
 	"github.com/Parking/cmd/api/app/infraestructure/config"
-	"github.com/Parking/errorApi/logger"
+	"github.com/Parking/pkg/logger"
 )
 
 const (
 	errorSavingTicket = "an error occurred save bike with serial number %s"
-	errorSavingDate   = "an error occurred with the format date"
 	queryToSaveTicket = `INSERT INTO ticket (bike_serial,enter_date)VALUES(?,?)`
 )
 
@@ -29,7 +28,6 @@ func (ticketCreationMysqlRepository *TicketCreationMysqlRepository) SaveTicket(t
 	defer func() {
 		config.CloseConnections(err, tx, nil, nil)
 	}()
-
 
 	tx, err = ticketCreationMysqlRepository.WriteClient.Begin()
 	if err != nil {

@@ -4,8 +4,8 @@ import (
 	"os"
 
 	"github.com/Parking/cmd/api/app/infraestructure/controller/middleware"
-	"github.com/Parking/errorApi/logger"
-	"github.com/Parking/errorApi/mlhandlers"
+	"github.com/Parking/pkg/logger"
+	"github.com/Parking/pkg/mlhandlers"
 )
 
 func StartApp() {

@@ -23,7 +23,7 @@ func setUpParkingRepository() (parkingCreationRepository port.ParkingCreationRep
 	return
 }
 func TestWhenSaveParkingIsOkThenReturnNil(t *testing.T) {
-	parking:= builder.NewParkingDataBuilder().Build()
+	parking := builder.NewParkingDataBuilder().Build()
 	repository, dbMock := setUpParkingRepository()
 
 	dbMock.ExpectBegin()
@@ -37,7 +37,7 @@ func TestWhenSaveParkingIsOkThenReturnNil(t *testing.T) {
 }
 func TestWhenSaveParkingTransactionFailThenReturnError(t *testing.T) {
 	transactionErrorMessage := "an error occurred save parking: PArkAutosBosa"
-	parking:= builder.NewParkingDataBuilder().Build()
+	parking := builder.NewParkingDataBuilder().Build()
 	errorOnUpdate := exception.InternalServerError{ErrMessage: transactionErrorMessage}
 	repository, dbMock := setUpParkingRepository()
 
@@ -52,7 +52,7 @@ func TestWhenSaveParkingTransactionFailThenReturnError(t *testing.T) {
 }
 func TestWhenSaveParkingTransactionBeginErrorThenReturnError(t *testing.T) {
 	transactionErrorMessage := "an error occurred save parking: PArkAutosBosa"
-	parking:= builder.NewParkingDataBuilder().Build()
+	parking := builder.NewParkingDataBuilder().Build()
 	errorOnUpdate := exception.InternalServerError{ErrMessage: transactionErrorMessage}
 	repository, dbMock := setUpParkingRepository()
 

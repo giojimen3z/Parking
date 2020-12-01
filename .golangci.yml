@@ -1,0 +1,62 @@
+linters-settings:
+  lll:
+    line-length: 120
+
+run:
+  tests: true
+  deadline: 5m
+
+linters:
+  enable-all: true
+  disable:
+    - funlen
+    - gochecknoglobals
+    - godot
+    - goerr113
+    - wsl
+    - asciicheck
+    - gochecknoglobals
+    - gocognit
+    - godot
+    - godox
+    - goerr113
+    - maligned
+    - nestif
+    - prealloc
+    - testpackage
+    - wsl
+    - interfacer
+    - gofumpt
+    - whitespace
+    - lll
+    - gosec
+    - gomnd
+    - govet
+    - noctx
+    - errcheck
+    - golint
+    - nakedret
+    - rowserrcheck
+    - stylecheck
+    - nlreturn
+    - deadcode
+    - gosimple
+    - varcheck
+    - unparam
+    - exhaustive
+    - gocritic
+    - dupl
+    - unused
+    - exhaustivestruct
+    - wrapcheck
+    - gochecknoinits
+    - errorlint
+
+service:
+  golangci-lint-version: 1.23.x # use the fixed version to not introduce new linters unexpectedly
+  prepare:
+    - echo "here I can run custom commands, but no preparation needed for this repo"
+
+issues:
+  exclude:
+    - Using the variable on range scope `tt` in function literal

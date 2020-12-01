@@ -5,11 +5,7 @@ import (
 
 	"github.com/Parking/cmd/api/app/domain/model"
 	"github.com/Parking/cmd/api/app/domain/port"
-	"github.com/Parking/errorApi/logger"
-)
-
-const (
-	errorParkingCreationRepository = "error getting  information from parking creation repository"
+	"github.com/Parking/pkg/logger"
 )
 
 type ParkingCreationServicePort interface {

@@ -8,13 +8,12 @@ import (
 	"github.com/Parking/cmd/api/app/domain/exception"
 	"github.com/Parking/cmd/api/app/domain/model"
 	"github.com/Parking/cmd/api/app/infraestructure/config"
-	"github.com/Parking/errorApi/logger"
+	"github.com/Parking/pkg/logger"
 )
 
 const (
 	queryToSaveParking = `INSERT INTO parking (name,address,owner)VALUES(?,?,?)`
 	errorSavingParking = "an error occurred save parking: %s"
-	transactionError   = ""
 )
 
 // ParkingCreationMysqlRepository represent the mysql repository

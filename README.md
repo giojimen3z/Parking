@@ -6,7 +6,7 @@ This is a basic Go application created using hexagon architecture  and golang
 
 ## First steps
 
-**### Go Runtime Version
+##Go Runtime Version
 
 Specify the Go runtime version tag you desire in your `Dockerfile`. If in doubt, it's completely safe to always use the
 latest one given the [Go 1 compatibility guarantees](https://golang.org/doc/go1compat).

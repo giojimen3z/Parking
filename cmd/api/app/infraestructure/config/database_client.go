@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/Parking/errorApi/logger"
+	"github.com/Parking/pkg/logger"
 	_ "github.com/go-sql-driver/mysql"
 )
 

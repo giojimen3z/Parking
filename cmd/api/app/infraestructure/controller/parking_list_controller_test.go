@@ -40,7 +40,6 @@ func TestWhenMakeParkingListThenReturn200AndParkingList(t *testing.T) {
 
 	response := controller.RunRequestWithHeaders(t, router, http.MethodGet, parkingListURITest, "", nil)
 
-
 	assert.Nil(t, err)
 	assert.Equal(t, http.StatusOK, response.Code)
 	assert.Equal(t, string(expectedBody), response.Body.String())
@@ -59,6 +58,6 @@ func TestWhenMakeParkingListThenReturn404(t *testing.T) {
 	response := controller.RunRequestWithHeaders(t, router, http.MethodGet, parkingListURITest, "", nil)
 
 	assert.Equal(t, http.StatusNotFound, response.Code)
-	assert.Equal(t,string(errorExpected.Error()),response.Body.String())
+	assert.Equal(t, errorExpected.Error(), response.Body.String())
 	parkingListMock.AssertExpectations(t)
 }

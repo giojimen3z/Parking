@@ -39,8 +39,6 @@ func (builder *TicketDataBuilder) WithTicketNumber(ticketNumber string) *TicketD
 	return builder
 }
 
-
-
 func (builder *TicketDataBuilder) WithExitDate(exitDate string) *TicketDataBuilder {
 	exitDateParse, _ := time.Parse(time.RFC3339, exitDate)
 	builder.exitDate = exitDateParse
@@ -54,7 +52,6 @@ func (builder *TicketDataBuilder) WithPaymentTotal(paymentTotal int64) *TicketDa
 	builder.paymentTotal = paymentTotal
 	return builder
 }
-
 
 func (builder *TicketDataBuilder) Build() model.Ticket {
 	return model.Ticket{

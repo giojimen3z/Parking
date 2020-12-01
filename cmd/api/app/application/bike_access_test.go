@@ -16,7 +16,6 @@ var (
 )
 
 func TestWhenAllBeOKAccessingBikeThenReturnNilError(t *testing.T) {
-
 	bike := builder.NewBikeDataBuilder().Build()
 	bikeAccessServiceMock.On("BikeAccess", bike).Return(nil).Once()
 	ticketCreationServiceMock.On("TicketCreation", bike.SerialNumber).Return(nil).Once()
