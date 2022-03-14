@@ -23,6 +23,7 @@ func TestWhenFailedSendTheTicketToRepositoryThenShouldReturnError(t *testing.T) 
 	ticketCreationService := service.TicketCreationService{
 		TicketCreationRepository: ticketCreationRepository,
 	}
+
 	err := ticketCreationService.TicketCreation(bike.SerialNumber)
 
 	assert.NotNil(t, err)

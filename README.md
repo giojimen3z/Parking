@@ -25,3 +25,30 @@ The file should start with:
 ### Dependency management
 
 This** image has native support for Go Modules and requires the use of it as the dependency management tool.
+
+##Examples to the work flow with post man and  code example
+
+In this section you can find the images  of workflow for the ping endpoint:
+
+Postman capture:
+
+![](image/Captura_Postman.png)
+
+
+##Code Flow:
+
+Main:
+
+![](image/CapturaMain.png)
+
+StartApp:
+
+![](image/CapturaStartApp.png)
+
+MapsURL:
+
+![](image/CapturaMapsUrl.png)
+
+Ping Controller:
+
+![](image/Captura_Controller.png)
