@@ -6,7 +6,7 @@ This is a basic Go application created using hexagon architecture  and golang
 
 ## First steps
 
-##Go Runtime Version
+## Go Runtime Version
 
 Specify the Go runtime version tag you desire in your `Dockerfile`. If in doubt, it's completely safe to always use the
 latest one given the [Go 1 compatibility guarantees](https://golang.org/doc/go1compat).
@@ -26,7 +26,7 @@ The file should start with:
 
 This** image has native support for Go Modules and requires the use of it as the dependency management tool.
 
-##Examples to the work flow with post man and  code example
+## Examples to the work flow with post man and  code example
 
 In this section you can find the images  of workflow for the ping endpoint:
 
@@ -35,7 +35,7 @@ Postman capture:
 ![](image/Captura_Postman.png)
 
 
-##Code Flow:
+## Code Flow:
 
 Main:
 
