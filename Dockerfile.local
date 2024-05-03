@@ -1,3 +1,0 @@
-FROM golang
-
-ENV GO_ENVIRONMENT="Test"
